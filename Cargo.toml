@@ -1,0 +1,24 @@
+[workspace]
+resolver = "3"
+members = ["lambxekutor_lib", "lambxekutor_cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+
+[workspace.dependencies]
+lambxekutor_lib = { path = "lambxekutor_lib" }
+
+[workspace.lints.clippy]
+pedantic = "warn"
+
+[profile.release]
+lto = true
+
+[profile.flamegraph]
+inherits = "release"
+debug = true
+panic = "abort"
